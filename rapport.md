@@ -16,7 +16,7 @@ Le but de notre étude est d'appliquer des méthodes de recherche via des questi
 Les étapes de ce projet ont été: 
 1) Choisir la population que l'on souhaite étudier
 2) Explorer le dataset avec [Wikidata Query Service](https://query.wikidata.org/): voir le nombre d'individus dans la population ainsi que leurs attributs principaux, graçe à des requetes ecrites en SPARQL (lien page)
-3) Extraire le CSV contenant: le nom et prénom, pays de naissance, citoyennetés, sexe ou genre et genre musical. Vu que de data set est beaucoup trop grand, on l'a extrait en batch et agregé en un csv ensuite 
+3) Extraire le CSV contenant: le nom et prénom, pays de naissance, citoyennetés, sexe ou genre et genre musical. Vu que de data set est beaucoup trop grand, on l'a extrait en batch par les années de naissance et agregé en un csv ensuite avec un court script python (lien).
 
 ## Résultats et analyses 
 ### Distribution temporelle
