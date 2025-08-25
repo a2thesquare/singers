@@ -1,9 +1,10 @@
 #### Nombre d'individus dans cette population
 `
-SELECT (COUNT(?person) AS ?count)
-WHERE {
-  ?person wdt:P31 wd:Q5;        # instance of human
-          wdt:P106 wd:Q177220.  # occupation: singer
+SELECT (COUNT(?singer) AS ?count) WHERE {
+  ?singer wdt:P31 wd:Q5;         # instance of human
+          wdt:P106 wd:Q177220;   # occupation: singer
+          wdt:P569 ?birthDate.   # date of birth
+  FILTER(YEAR(?birthDate) > 1801)
 }
 `
 #### Selection des variables importantes
