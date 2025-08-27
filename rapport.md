@@ -2,7 +2,7 @@
 L’objectif de cette étude est d’expérimenter les différentes phases de production et d’analyse de l’information sous forme de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000.
 
 Le dataset de base a été extrait à l’aide de requêtes SPARQL sur le serveur Wikidata. Initialement, je souhaitais réaliser des requêtes distinctes pour chaque variable (date de naissance, pays d'origine, sexe, genre musical), mais en raison de la taille importante de la population étudiée (environ 200 000 individus), il a fallu procéder autrement : j’ai téléchargé toutes les valeurs d’intérêt simultanément, en segmentant la population par tranches d’années de naissance.
-```
+```sql
 SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?genderLabel ?genreLabel WHERE {
   ?singer wdt:P31 wd:Q5;           # instance of human
           wdt:P106 wd:Q177220;     # occupation: singer
@@ -28,7 +28,7 @@ au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le 
 
 Pour la partie de l'analyse concernant une distribution de variable qualitative dans le temps, j'ai pris les sexes des différents artistes et distribué. 
 
-```
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -58,7 +58,7 @@ plt.show()
 
 On observe que le nombre de chanteuses augmente progressivement des années 1800 à 1910, puis de façon plus marquée jusqu’aux années 1980, où il atteint un pic avant de diminuer légèrement. Cette évolution reflète l’essor des opportunités pour les femmes dans la musique, l’industrialisation de l’industrie musicale et les changements socioculturels favorisant leur visibilité. Cependant, cette représentation seule ne permet pas de comparer correctement les époques, car elle ne tient pas compte du nombre total de chanteurs. Une analyse plus pertinente consiste à examiner les proportions d’hommes et de femmes par décennie, comme dans le graphique suivant.
 
-```
+```python
 decade_gender_prop = decade_gender_counts.div(decade_gender_counts.sum(axis=1), axis=0)
 
 decade_gender_prop.plot(kind='bar', figsize=(12,6), color=['lightpink', 'skyblue'])
