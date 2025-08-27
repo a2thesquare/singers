@@ -19,8 +19,20 @@ SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?gende
 ORDER BY ?birthDate
 
 ```
-Au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL. Ensuite, j’ai utilisé le script Python suivant pour fusionner tous les CSV obtenus en un seul fichier.
+Au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL. Ensuite, j’ai utilisé le script Python suivant pour fusionner tous les CSV obtenus en un seul document.
 
+```python
+import pandas as pd
+import glob
+
+csv_files = glob.glob("/Users/angelikiandreadi/Library/CloudStorage/OneDrive-unine.ch/Unine/Semestre_4/Environnement_Python/csv_dates_naissance/*.csv")
+print(csv_files)
+
+dfs = [pd.read_csv(f) for f in csv_files]
+combined_df = pd.concat(dfs, ignore_index=True)
+
+combined_df.to_csv("/Users/angelikiandreadi/Downloads/combined_singers.csv", index=False)
+```
 ---------------------
 
 ### 1) Comment evolue le nombre de chanteurs.euses notables nés par decennies ? 
