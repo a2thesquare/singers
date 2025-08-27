@@ -39,8 +39,9 @@ plt.legend(title='Genre')
 plt.tight_layout()
 plt.show()
 ```
-![Chanteurs.euses par décennies](<img width="2384" height="1206" alt="image" src="https://github.com/user-attachments/assets/86d451a6-62ca-4af6-98c1-de0778f49b32" />
-)
+<img width="2384" height="1206" alt="image" src="https://github.com/user-attachments/assets/0baa4147-66a9-470a-a9c7-4840d81fd5a9" />
+
+
 ### Analyse bivariée
 ### Analyse de réseaux
 
