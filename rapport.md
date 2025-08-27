@@ -3,7 +3,7 @@ L'objectif de ce cet enseignement est d'expérimenter les differentes phases de 
 
 Le but de cette étude est d'appliquer des méthodes de recherche via des questionnements sur une population donnée, dans notre cas, celle des chanteurs/chanteuses. 
 
-Le dataset de base de cette étude a été extrait via des requetes SPARL sur le serveur de Wikidata.
+Le dataset de base de cette étude a été extrait via des requetes SPARL sur le serveur de Wikidata. A la base je voulais faire des requetes différentes pour extraire les données des différentes variables, mais à cause de la taille de ma population (env. 200'000), j'ai du m'y prendre autrement: j'ai téléchargé initialement toutes les valeurs d'interet d'un coup mais par tranches d'années de naissance. Par exemple: 
 
 ---------------------
 
