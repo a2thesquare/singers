@@ -76,10 +76,6 @@ Cette fois, on peut distinguer deux périodes de montée significative : la pr
 
 ### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style de musical des chanteurs et chanteuses ? 
 **→ Application de l'analyse bivariée**
-
-
-### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
-**→ Application de l'analyse de réseaux**
 ```python
 import pandas as pd
 from scipy.stats import chi2_contingency
@@ -92,14 +88,35 @@ df_filtered = df[df['citizenshipLabel'].isin(top_countries)]
 
 # Table de contingence
 contingency = pd.crosstab(df_filtered['citizenshipLabel'], df_filtered['genreLabel'])
-#print(contingency)
-
+print(contingency)
 
 chi2, p, dof, expected = chi2_contingency(contingency)
 print(f"Chi2 = {chi2:.2f}, p-value = {p:.4f}")
 ```
 **Resultat: Chi2 = 93652.10, p-value = 0.0000**
-La valeur de Chi2 très élevée indique qu'il existe un écart important entre les effectifs observés et les effectifs attendus sous l'hypothèse d'indépendance. La p-value proche de 0 signifie que cet écart est hautement significatif, donc on peut rejeter l'hypothese nulle. La conclusion statistique est que il existe une assocaition significative entre le pays et citoyenneté et le style musical. Autrement dit, certains styles musicauy sont plus fréquents dans certains pays. Pour mieux comprendre, je vous propose le heatmap suivant:
+La valeur très élevée du Chi2 indique qu’il existe un écart important entre les effectifs observés et ceux attendus sous l’hypothèse d’indépendance entre le pays de citoyenneté et le style musical. La p-value proche de 0 montre que cet écart est hautement significatif, ce qui permet de rejeter l’hypothèse nulle. Autrement dit, il existe une association statistiquement significative entre le pays et le style musical : certains genres sont beaucoup plus fréquents dans certains pays. Pour illustrer cette association, nous avons construit une heatmap représentant les 10 pays et les 10 genres musicaux les plus fréquents.
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12,8))
+sns.heatmap(contingency, annot=True, fmt="d", cmap="YlGnBu")
+plt.title("Top 10 Countries vs Top 10 Genres")
+plt.ylabel("Country")
+plt.xlabel("Genre")
+plt.show()
+```python
+
+<img width="1034" height="765" alt="image" src="https://github.com/user-attachments/assets/181d0090-1e0f-4808-9139-6192bc7ca858" />
+
+On observe que la pop est le style le plus représenté, suivi du rock, tandis que le hip-hop est beaucoup plus marginal. Une forte concentration d’artistes est visible aux États-Unis, où la pop domine largement, suivie par la country. Au Japon, le genre le plus populaire est la J-Pop, ce qui reflète les préférences musicales locales.
+
+Il convient de noter que cette visualisation ne montre que les pays et genres les plus représentés ; certaines tendances moins fréquentes sont donc masquées. Néanmoins, elle permet de comprendre rapidement comment la distribution des styles musicaux varie selon les pays et met en évidence des préférences culturelles distinctes.
+
+### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
+**→ Application de l'analyse de réseaux**
+
 ## Discussion
 
 ## Conclusion
