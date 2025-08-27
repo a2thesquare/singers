@@ -19,7 +19,7 @@ SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?gende
 ORDER BY ?birthDate
 
 ```
-au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL.
+au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL. Ensuite, j’ai utilisé le script Python suivant pour fusionner tous les CSV obtenus en un seul fichier.
 
 ---------------------
 
@@ -74,13 +74,32 @@ plt.show()
 
 Cette fois, on peut distinguer deux périodes de montée significative : la première vers 1860 et la seconde autour de 1980, mettant en évidence l’évolution relative de la représentation féminine dans la musique au fil du temps.
 
-### 2) La répartition des genres musicaux varie-t-elle selon le pays de citoyenneté des chanteurs.euses ? 
+### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style de musical des chanteurs et chanteuses ? 
 **→ Application de l'analyse bivariée**
-### Analyse de réseaux
+
 
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
 **→ Application de l'analyse de réseaux**
+```python
+import pandas as pd
+from scipy.stats import chi2_contingency
 
+df = pd.read_csv("combined_singers.csv")
+
+# Filtrer si nécessaire, par exemple uniquement pour les pays les plus représentés
+top_countries = df['citizenshipLabel'].value_counts().nlargest(10).index
+df_filtered = df[df['citizenshipLabel'].isin(top_countries)]
+
+# Table de contingence
+contingency = pd.crosstab(df_filtered['citizenshipLabel'], df_filtered['genreLabel'])
+#print(contingency)
+
+
+chi2, p, dof, expected = chi2_contingency(contingency)
+print(f"Chi2 = {chi2:.2f}, p-value = {p:.4f}")
+```
+**Resultat: Chi2 = 93652.10, p-value = 0.0000**
+La valeur de Chi2 très élevée indique qu'il existe un écart important entre les effectifs observés et les effectifs attendus sous l'hypothèse d'indépendance. La p-value proche de 0 signifie que cet écart est hautement significatif, donc on peut rejeter l'hypothese nulle. La conclusion statistique est que il existe une assocaition significative entre le pays et citoyenneté et le style musical. Autrement dit, certains styles musicauy sont plus fréquents dans certains pays. Pour mieux comprendre, je vous propose le heatmap suivant:
 ## Discussion
 
 ## Conclusion
