@@ -19,7 +19,7 @@ SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?gende
 ORDER BY ?birthDate
 
 ```
-au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL. Ensuite, j’ai utilisé le script Python suivant pour fusionner tous les CSV obtenus en un seul fichier.
+Au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL. Ensuite, j’ai utilisé le script Python suivant pour fusionner tous les CSV obtenus en un seul fichier.
 
 ---------------------
 
@@ -106,7 +106,7 @@ plt.title("Top 10 Countries vs Top 10 Genres")
 plt.ylabel("Country")
 plt.xlabel("Genre")
 plt.show()
-```python
+```
 
 <img width="1034" height="765" alt="image" src="https://github.com/user-attachments/assets/181d0090-1e0f-4808-9139-6192bc7ca858" />
 
