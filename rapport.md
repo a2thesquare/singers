@@ -3,6 +3,8 @@ L'objectif de ce cet enseignement est d'expérimenter les differentes phases de 
 
 Le but de cette étude est d'appliquer des méthodes de recherche via des questionnements sur une population donnée, dans notre cas, celle des chanteurs/chanteuses. 
 
+Le dataset de base de cette étude a été extrait via des requetes SPARL sur le serveur de Wikidata.
+
 ---------------------
 
 ### 1) Comment evolue le nombre de chanteurs.euses notables nés par decennies ? 
