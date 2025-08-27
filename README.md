@@ -1,8 +1,10 @@
 # Chanteurs
 Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'évaluation.
 
+### Rapport(?)
 - Questions de recherche et objectifs du projet
 - Liste d'informations disponibles
+- Rapport complet
 
 ### Données
 - Base de données (csv)
@@ -16,6 +18,4 @@ Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'éva
 - Distribution de variables quantitative avec évolution dans le temps
 - Analyse bivariée de variable qualitatives (chi2)
 - Analyse de réseaux
-
-### Rapport complet
 
