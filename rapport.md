@@ -1,5 +1,12 @@
+# Analyse des chanteurs de Wikipedia
 
-L’objectif de cette étude est d’expérimenter les différentes phases de production et d’analyse de l’information sous forme de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000.
+L’objectif de cette étude est d’expérimenter les différentes phases de production et d’analyse de l’information sous forme de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000. Les questions qui vont etre le fil-rouge de ce travail sont: 
+
+1) Évolution temporelle : Comment le nombre de chanteurs et chanteuses notables varie-t-il par décennie ?
+2) Lien pays–style musical : Le pays de citoyenneté est-il statistiquement lié au style musical ?
+3) Co-occurrence de genres : Quels genres musicaux sont fréquemment associés chez les chanteurs et chanteuses ?
+    
+-------------------------------
 
 Le dataset de base a été extrait à l’aide de requêtes SPARQL sur le serveur Wikidata. Initialement, je souhaitais réaliser des requêtes distinctes pour chaque variable (date de naissance, pays d'origine, sexe, genre musical), mais en raison de la taille importante de la population étudiée (environ 200 000 individus), il a fallu procéder autrement : j’ai téléchargé toutes les valeurs d’intérêt simultanément, en segmentant la population par tranches d’années de naissance.
 ```sql
@@ -86,6 +93,8 @@ plt.show()
 
 Cette fois, on peut distinguer deux périodes de montée significative : la première vers 1860 et la seconde autour de 1980, mettant en évidence l’évolution relative de la représentation féminine dans la musique au fil du temps.
 
+--------------------------------
+
 ### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style de musical des chanteurs et chanteuses ? 
 **→ Application de l'analyse bivariée**
 ```python
@@ -125,6 +134,8 @@ plt.show()
 On observe que la pop est le style le plus représenté, suivi du rock, tandis que le hip-hop est beaucoup plus marginal. Une forte concentration d’artistes est visible aux États-Unis, où la pop domine largement, suivie par la country. Au Japon, le genre le plus populaire est la J-Pop, ce qui reflète les préférences musicales locales.
 
 Il convient de noter que cette visualisation ne montre que les pays et genres les plus représentés ; certaines tendances moins fréquentes sont donc masquées. Néanmoins, elle permet de comprendre rapidement comment la distribution des styles musicaux varie selon les pays et met en évidence des préférences culturelles distinctes.
+
+----------------------------------------
 
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
 **→ Application de l'analyse de réseaux**
