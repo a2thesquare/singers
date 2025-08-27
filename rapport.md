@@ -4,6 +4,24 @@ L'objectif de ce cet enseignement est d'expérimenter les differentes phases de 
 Le but de cette étude est d'appliquer des méthodes de recherche via des questionnements sur une population donnée, dans notre cas, celle des chanteurs/chanteuses. 
 
 Le dataset de base de cette étude a été extrait via des requetes SPARL sur le serveur de Wikidata. A la base je voulais faire des requetes différentes pour extraire les données des différentes variables, mais à cause de la taille de ma population (env. 200'000), j'ai du m'y prendre autrement: j'ai téléchargé initialement toutes les valeurs d'interet d'un coup mais par tranches d'années de naissance. Par exemple: 
+```
+SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?genderLabel ?genreLabel WHERE {
+  ?singer wdt:P31 wd:Q5;           # instance of human
+          wdt:P106 wd:Q177220;     # occupation: singer
+          wdt:P569 ?birthDate.     # date of birth
+  FILTER(YEAR(?birthDate) >= 1801 && YEAR(?birthDate) < 1850)
+
+  OPTIONAL { ?singer wdt:P19 ?birthPlace. }       # place of birth
+  OPTIONAL { ?singer wdt:P27 ?citizenship. }      # country of citizenship
+  OPTIONAL { ?singer wdt:P21 ?gender. }           # sex or gender
+  OPTIONAL { ?singer wdt:P136 ?genre. }           # musical genre
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}
+ORDER BY ?birthDate
+
+```
+Au début j'ai commencé par des tranches de 50 années, mais à partir de XXXX, il y avait tellement plus de personnes qui étaient nées que j'ai du split en décennies, puis à la toute fin en 5 années. Le détail est documenté dans le fichier SPARQL. 
 
 ---------------------
 
