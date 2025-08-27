@@ -1,9 +1,7 @@
 
-L'objectif de ce cet enseignement est d'expérimenter les differentes phases de la production et analyse d'information sous forme de données à partir de questions qu'on a posées.
+L’objectif de cette étude est d’expérimenter les différentes phases de production et d’analyse de l’information sous forme de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000.
 
-Le but de cette étude est d'appliquer des méthodes de recherche via des questionnements sur une population donnée, dans notre cas, celle des chanteurs/chanteuses. 
-
-Le dataset de base de cette étude a été extrait via des requetes SPARL sur le serveur de Wikidata. A la base je voulais faire des requetes différentes pour extraire les données des différentes variables, mais à cause de la taille de ma population (env. 200'000), j'ai du m'y prendre autrement: j'ai téléchargé initialement toutes les valeurs d'interet d'un coup mais par tranches d'années de naissance. Par exemple: 
+Le dataset de base a été extrait à l’aide de requêtes SPARQL sur le serveur Wikidata. Initialement, je souhaitais réaliser des requêtes distinctes pour chaque variable (date de naissance, pays d'origine, sexe, genre musical), mais en raison de la taille importante de la population étudiée (environ 200 000 individus), il a fallu procéder autrement : j’ai téléchargé toutes les valeurs d’intérêt simultanément, en segmentant la population par tranches d’années de naissance.
 ```
 SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?genderLabel ?genreLabel WHERE {
   ?singer wdt:P31 wd:Q5;           # instance of human
@@ -21,7 +19,7 @@ SELECT ?singer ?singerLabel ?birthDate ?birthPlaceLabel ?citizenshipLabel ?gende
 ORDER BY ?birthDate
 
 ```
-Au début j'ai commencé par des tranches de 50 années, mais à partir de XXXX, il y avait tellement plus de personnes qui étaient nées que j'ai du split en décennies, puis à la toute fin en 5 années. Le détail est documenté dans le fichier SPARQL. 
+au départ, j’ai utilisé des tranches de 50 ans, puis, à partir de 1950, le nombre de personnes étant beaucoup plus important, j’ai réduit les tranches à 10 ans, et enfin à partir de 1990 à des tranches de 5 ans. Le détail de cette procédure est documenté dans le fichier SPARQL.
 
 ---------------------
 
