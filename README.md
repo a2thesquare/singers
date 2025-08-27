@@ -1,16 +1,21 @@
-# Chanteurs.euses
+# Chanteurs
 Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'évaluation.
 
-### Documentations
-- Objectifs du projet
-- Questions de recherche
-  
+- Questions de recherche et objectifs du projet
+- Liste d'informations disponibles
+
 ### Données
-- Base de données RDF (?)
-- Base de donnée principale (csv)
+- Base de données (csv)
+- Base de données RDF
 
-### Code (?)
+### Code
 - Documentation SPARQL
-- Notebooks d'analyse
+- Documentation Python
 
-### Rapport complet 
+### Analyses
+- Distribution de variables quantitative avec évolution dans le temps
+- Analyse bivariée de variable qualitatives (chi2)
+- Analyse de réseaux
+
+### Rapport complet
+
