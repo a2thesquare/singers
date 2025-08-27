@@ -116,6 +116,20 @@ Il convient de noter que cette visualisation ne montre que les pays et genres le
 
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
 **→ Application de l'analyse de réseaux**
+Quels genres musicaux sont le plus performés ensembles, pas les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
+
+```python
+Top 10 degré:
+[('pop music', 1.0, ('rhythm and blues', 1.0), ('jazz', 1.0), ('pop rock', 1.0), ('rock music', 1.0), ('folk music', 1.0), ('hip-hop', 0.9473684210526315), ('reggae', 0.9473684210526315), ('soul', 0.9473684210526315), ('blues', 0.9473684210526315)]
+
+Top 10 intermédiarité:
+[('opera', 0.27309941520467834), ('K-pop', 0.26286549707602336), ('hard rock', 0.2218323586744639), ('chanson', 0.188401559454191), ('reggae', 0.17426900584795318), ('indie rock', 0.06374269005847952), ('blues', 0.04434697855750487), ('traditional folk music', 0.04327485380116959), ('J-pop', 0.039473684210526314), ('alternative rock', 0.017738791423001946)]
+```
+
+Dans le Top 10 de la centralité en degré, on observe que la majorité des genres (pop, R&B, jazz, rock, folk, etc.) ont une valeur proche de 1, ce qui signifie qu’ils sont connectés à presque tous les autres genres du réseau.
+Cela s’explique par le fait que nous avons restreint notre analyse au top 20 des genres les plus fréquents, qui sont donc très souvent co-associés chez les artistes. En d’autres termes, les genres dominants forment un noyau fortement interconnecté, où presque chaque genre est lié aux autres.
+Ici, un score de 1 veut dire que le genre est lié à 100 % des autres genres considérés. En revanche, la centralité d’intermédiarité (betweenness) raconte une histoire différente. Le Top 10 met en évidence certains genres qui jouent un rôle de “ponts” stratégiques dans le réseau : Opera (0.27) et K-pop (0.26) apparaissent comme des genres charnières reliant des communautés autrement peu connectées (par exemple, la musique classique ou la musique asiatique moderne vers le réseau principal pop/rock).
+Hard rock et chanson remplissent aussi ce rôle de médiateurs entre différents ensembles musicaux. Des genres comme reggae ou blues servent de passerelles entre des familles musicales plus spécialisées (urbain, traditionnel, etc.) et le noyau central pop/rock.
 
 ## Discussion
 
