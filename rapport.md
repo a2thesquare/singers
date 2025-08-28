@@ -1,12 +1,15 @@
+
 # Analyse des chanteurs de Wikipedia
+Ce travail vise à expérimenter les différentes étapes de production et d’analyse de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000.
+**Questions de recherche :**
 
-L’objectif de cette étude est d’expérimenter les différentes phases de production et d’analyse de l’information sous forme de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000. Les questions qui vont etre le fil-rouge de ce travail sont: 
-
-1) Évolution temporelle : Comment le nombre de chanteurs et chanteuses notables varie-t-il par décennie ?
-2) Lien pays–style musical : Le pays de citoyenneté est-il statistiquement lié au style musical ?
-3) Co-occurrence de genres : Quels genres musicaux sont fréquemment associés chez les chanteurs et chanteuses ?
+1) Comment le nombre de chanteurs et chanteuses notables a-t-il évolué au fil des décennies ?
+2) Existe-t-il une relation statistiquement significative entre le pays de citoyenneté et le style musical ?
+3) Quels genres musicaux apparaissent le plus souvent associés chez les chanteurs et chanteuses ?
     
 -------------------------------
+
+## Extraction des données
 
 Le dataset de base a été extrait à l’aide de requêtes SPARQL sur le serveur Wikidata. Initialement, je souhaitais réaliser des requêtes distinctes pour chaque variable (date de naissance, pays d'origine, sexe, genre musical), mais en raison de la taille importante de la population étudiée (environ 200 000 individus), il a fallu procéder autrement : j’ai téléchargé toutes les valeurs d’intérêt simultanément, en segmentant la population par tranches d’années de naissance.
 ```sql
@@ -41,11 +44,11 @@ combined_df = pd.concat(dfs, ignore_index=True)
 combined_df.to_csv("/Users/angelikiandreadi/Downloads/combined_singers.csv", index=False)
 ```
 ---------------------
-
+## Questions de recherche
 ### 1) Comment evolue le nombre de chanteurs.euses notables nés par decennies ? 
 **→ Application de la distribution de variable qualitative avec évolution temporelle**
 
-Pour la partie de l'analyse concernant une distribution de variable qualitative dans le temps, j'ai pris les sexes des différents artistes et distribué. 
+Pour l’analyse de la distribution d’une variable qualitative dans le temps, j’ai retenu le sexe des artistes et étudié son évolution décennie par décennie.
 
 ```python
 import pandas as pd
@@ -75,7 +78,7 @@ plt.show()
 ```
 <img width="2384" height="1206" alt="image" src="https://github.com/user-attachments/assets/0baa4147-66a9-470a-a9c7-4840d81fd5a9" />
 
-On observe que le nombre de chanteuses augmente progressivement des années 1800 à 1910, puis de façon plus marquée jusqu’aux années 1980, où il atteint un pic avant de diminuer légèrement. Cette évolution reflète l’essor des opportunités pour les femmes dans la musique, l’industrialisation de l’industrie musicale et les changements socioculturels favorisant leur visibilité. Cependant, cette représentation seule ne permet pas de comparer correctement les époques, car elle ne tient pas compte du nombre total de chanteurs. Une analyse plus pertinente consiste à examiner les proportions d’hommes et de femmes par décennie, comme dans le graphique suivant.
+On observe que le nombre de chanteuses augmente progressivement des années 1800 à 1910, puis de façon plus marquée jusqu’aux années 1980, où il atteint un pic avant de diminuer légèrement. Cette évolution pourrait reflèter l’essor des opportunités pour les femmes dans la musique, l’industrialisation de l’industrie musicale et les changements socioculturels favorisant leur visibilité. Cependant, cette représentation seule ne permet pas de comparer correctement les époques, car elle ne tient pas compte du nombre total de chanteurs. Une analyse plus pertinente consiste à examiner les proportions d’hommes et de femmes par décennie, comme dans le graphique suivant.
 
 ```python
 decade_gender_prop = decade_gender_counts.div(decade_gender_counts.sum(axis=1), axis=0)
@@ -97,6 +100,9 @@ Cette fois, on peut distinguer deux périodes de montée significative : la pr
 
 ### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style de musical des chanteurs et chanteuses ? 
 **→ Application de l'analyse bivariée**
+
+Pour l’analyse bivariée de variables qualitatives, j’ai retenu le pays de citoyenneté et le style musical des artistes, afin d’examiner si le style pratiqué est lié à la localisation géographique (en supposant que les artistes chantent dans leur pays d’origine) et d’identifier les préférences musicales dans les pays les plus représentés, grace au test de chi^2. 
+
 ```python
 import pandas as pd
 from scipy.stats import chi2_contingency
@@ -115,6 +121,7 @@ chi2, p, dof, expected = chi2_contingency(contingency)
 print(f"Chi2 = {chi2:.2f}, p-value = {p:.4f}")
 ```
 **Resultat: Chi2 = 93652.10, p-value = 0.0000**
+
 La valeur très élevée du Chi2 indique qu’il existe un écart important entre les effectifs observés et ceux attendus sous l’hypothèse d’indépendance entre le pays de citoyenneté et le style musical. La p-value proche de 0 montre que cet écart est hautement significatif, ce qui permet de rejeter l’hypothèse nulle. Autrement dit, il existe une association statistiquement significative entre le pays et le style musical : certains genres sont beaucoup plus fréquents dans certains pays. Pour illustrer cette association, nous avons construit une heatmap représentant les 10 pays et les 10 genres musicaux les plus fréquents.
 
 ```python
