@@ -48,7 +48,7 @@ combined_df = pd.concat(dfs, ignore_index=True)
 combined_df.to_csv("/Users/angelikiandreadi/Downloads/combined_singers.csv", index=False)
 ```
 -----------------------------
-## Base de données RDF**
+## Base de données RDF
 La base de données RDF demandée a été obtenue en transformant le CSV original en RDF à l’aide d’un script Python fourni par ChatGPT, car cette opération dépasse actuellement mes compétences. Le fichier généré est disponible au lien suivant, et le script utilisé est :
 
 ```python
