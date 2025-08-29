@@ -1,6 +1,6 @@
-
 # Analyse des chanteurs de Wikipedia
 Ce travail vise à expérimenter les différentes étapes de production et d’analyse de données, en appliquant des méthodes de recherche à une population spécifique : les chanteurs et chanteuses nés entre 1801 et 2000.
+
 **Questions de recherche :**
 
 1) Comment le nombre de chanteurs et chanteuses notables a-t-il évolué au fil des décennies ?
@@ -47,6 +47,27 @@ combined_df = pd.concat(dfs, ignore_index=True)
 
 combined_df.to_csv("/Users/angelikiandreadi/Downloads/combined_singers.csv", index=False)
 ```
+-----------------------------
+## Base de données RDF**
+La base de données RDF demandée a été obtenue en transformant le CSV original en RDF à l’aide d’un script Python fourni par ChatGPT, car cette opération dépasse actuellement mes compétences. Le fichier généré est disponible au lien suivant, et le script utilisé est :
+
+```python
+import pandas as pd
+from rdflib import Graph, URIRef, Literal, Namespace
+
+df = pd.read_csv("combined_singers.csv")  
+g = Graph()
+EX = Namespace("http://example.org/")  
+
+for idx, row in df.iterrows():
+    sujet = URIRef(f"http://example.org/ligne{idx}")
+    for col in df.columns:
+        g.add((sujet, EX[col], Literal(row[col])))
+
+g.serialize("wikidata.rdf", format="turtle")
+```
+Cependant, lors de la tentative d’import de ce fichier dans AllegroGraph, l’application a renvoyé l’erreur « Restricted Access Mode ». Après recherche, la seule solution disponible semble être de télécharger AllegroGraph Desktop, ce qui permet un usage local mais ne répond pas à l’objectif initial consistant à disposer d’un serveur RDF en ligne.
+
 ---------------------
 ## Questions de recherche
 ### 1) Comment evolue le nombre de chanteurs.euses notables nés par decennies ? 
