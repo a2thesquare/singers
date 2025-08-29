@@ -161,9 +161,49 @@ Top 10 intermédiarité:
 ```
 
 Dans le Top 10 de la centralité en degré, on observe que la majorité des genres (pop, R&B, jazz, rock, folk, etc.) ont une valeur proche de 1, ce qui signifie qu’ils sont connectés à presque tous les autres genres du réseau.
+
 Cela s’explique par le fait que nous avons restreint notre analyse au top 20 des genres les plus fréquents, qui sont donc très souvent co-associés chez les artistes. En d’autres termes, les genres dominants forment un noyau fortement interconnecté, où presque chaque genre est lié aux autres.
 Ici, un score de 1 veut dire que le genre est lié à 100 % des autres genres considérés. En revanche, la centralité d’intermédiarité (betweenness) raconte une histoire différente. Le Top 10 met en évidence certains genres qui jouent un rôle de “ponts” stratégiques dans le réseau : Opera (0.27) et K-pop (0.26) apparaissent comme des genres charnières reliant des communautés autrement peu connectées (par exemple, la musique classique ou la musique asiatique moderne vers le réseau principal pop/rock).
+
 Hard rock et chanson remplissent aussi ce rôle de médiateurs entre différents ensembles musicaux. Des genres comme reggae ou blues servent de passerelles entre des familles musicales plus spécialisées (urbain, traditionnel, etc.) et le noyau central pop/rock.
+Toutes ce que nous disent ces chiffres peut etre confirmé graçe au shema suivant: 
+```python
+mport pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt
+from itertools import combinations
+
+df = pd.read_csv("combined_singers.csv")
+
+# trie les top 20 genres qui apparaissent le plus souvent
+top_genres = df["genreLabel"].value_counts().nlargest(20).index
+df_top = df[df["genreLabel"].isin(top_genres)]
+
+# regroupe les genres par artiste
+artist_genres = df_top.groupby("singerLabel")["genreLabel"].apply(list)
+
+G = nx.Graph()
+
+for genres in artist_genres:
+    # Toutes les paires de genres pour cet artiste
+    for g1, g2 in combinations(set(genres), 2):  
+        if G.has_edge(g1, g2):
+            G[g1][g2]["weight"] += 1
+        else:
+            G.add_edge(g1, g2, weight=1)
+
+plt.figure(figsize=(12, 8))
+pos = nx.spring_layout(G, k=15)  # layout pour la visualisation
+edges = nx.draw_networkx_edges(G, pos, alpha=0.3)
+nodes = nx.draw_networkx_nodes(G, pos, node_size=500, node_color="orange")
+labels = nx.draw_networkx_labels(G, pos, font_size=10)
+
+plt.title("Réseau des genres musicaux (basé sur artistes multi-genres)")
+plt.axis("off")
+plt.show()
+```
+<img width="1758" height="1256" alt="image" src="https://github.com/user-attachments/assets/0274cfcb-0c8b-45be-bf53-c064957a250c" />
+
 
 ## Discussion
 Ce projet 
