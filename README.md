@@ -1,7 +1,7 @@
 # Chanteurs
 Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'évaluation.
 
-### Rapport(?)
+### Documentation
 - Questions de recherche et objectifs du projet
 - Liste d'informations disponibles
 - Rapport complet
