@@ -6,7 +6,11 @@ Ce travail vise à expérimenter les différentes étapes de production et d’a
 1) Comment le nombre de chanteurs et chanteuses notables a-t-il évolué au fil des décennies ?
 2) Existe-t-il une relation statistiquement significative entre le pays de citoyenneté et le style musical ?
 3) Quels genres musicaux apparaissent le plus souvent associés chez les chanteurs et chanteuses ?
-    
+   
+Au départ, ce travail devait être réalisé sur la population de grimpeurs, en suivant la méthode proposée par l’enseignant (repositoire [lien suivant](https://github.com/a2thesquare/Grimpeurs). Après de nombreux essais et plusieurs heures de travail, j’ai décidé de recommencer à zéro en choisissant une autre population et une méthode que je comprenais mieux, tout en utilisant autant que possible les outils demandés.
+
+La multiplicité des documents et l’organisation des données m’avaient perdue, et je ne comprenais ni les requêtes ni les notebooks Jupyter. En appliquant une méthode plus originale, j’ai pu mieux apprendre et comprendre le processus, en espérant avoir atteint le résultat attendu.
+
 -------------------------------
 
 ## Extraction des données
@@ -162,5 +166,15 @@ Ici, un score de 1 veut dire que le genre est lié à 100 % des autres genres co
 Hard rock et chanson remplissent aussi ce rôle de médiateurs entre différents ensembles musicaux. Des genres comme reggae ou blues servent de passerelles entre des familles musicales plus spécialisées (urbain, traditionnel, etc.) et le noyau central pop/rock.
 
 ## Discussion
+Ce projet 
 
+**Points négatifs:**
+- Population beaucoup trop massive, reduit l'utilité de wikidata.
+- Utilisation de méthode personnelle,
+- 
+**Points positifs:**
+- Appris des nouvelles méthodes de travail et outils de travail qui me seront utiles dans mon parcours d'analyste de données. d
+- 
+**Suite possible de l'étude**:
+  
 ## Conclusion
