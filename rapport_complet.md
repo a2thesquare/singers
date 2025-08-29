@@ -152,7 +152,22 @@ Il convient de noter que cette visualisation ne montre que les pays et genres le
 **→ Application de l'analyse de réseaux**
 Quels genres musicaux sont le plus performés ensembles, pas les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
 
+
 ```python
+
+# centralité en degré (genres les plus connectés)
+deg_cent = nx.degree_centrality(G)
+
+# centralité d’intermédiarité (genres-passerelles)
+bet_cent = nx.betweenness_centrality(G, weight="weight")
+
+# trier et afficher les top 10
+print("Top 10 degré:")
+print(sorted(deg_cent.items(), key=lambda x: x[1], reverse=True)[:10])
+
+print("Top 10 intermédiarité:")
+print(sorted(bet_cent.items(), key=lambda x: x[1], reverse=True)[:10])
+
 Top 10 degré:
 [('pop music', 1.0, ('rhythm and blues', 1.0), ('jazz', 1.0), ('pop rock', 1.0), ('rock music', 1.0), ('folk music', 1.0), ('hip-hop', 0.9473684210526315), ('reggae', 0.9473684210526315), ('soul', 0.9473684210526315), ('blues', 0.9473684210526315)]
 
