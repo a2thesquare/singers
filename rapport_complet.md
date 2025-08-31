@@ -166,8 +166,6 @@ On observe que la pop est le style le plus représenté, suivi du rock, tandis q
 
 Il convient de noter que cette visualisation ne montre que les pays et genres les plus représentés ; certaines tendances moins fréquentes sont donc masquées. Néanmoins, elle permet de comprendre rapidement comment la distribution des styles musicaux varie selon les pays et met en évidence des préférences culturelles distinctes.
 
-AJOUTER QUE PROPORTIONNALITé AURAIT éTé INTERESSANTE 
-
 ----------------------------------------
 
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
@@ -256,9 +254,10 @@ Pour plus de lisibilité, j'ai encore restreint le nombre de styles de musique a
 - L’analyse de réseaux aurait pu être approfondie davantage, avec un travail supplémentaire sur la détection de communautés, les poids des liens ou l’évolution temporelle.
   
 **Perspectives:**
+- La heatmap aurait été encore plus pertinente si, au lieu de représenter le nombre total d’artistes par style musical, elle avait montré la proportion d’artistes de chaque style dans chaque pays. Cela permettrait de mieux distinguer les préférences musicales propres à chaque pays et moins juste les préférances des pays avec une grande population d'artistes. 
 - L’analyse de réseaux a été une partie particulièrement intéressante et nouvelle pour moi. J’aimerais par la suite explorer comment certains styles gagnent ou perdent en popularité selon les époques, et observer les différents réseaux que cela engendre au fil du temps.
-
 - Pour les artistes plus récents, il serait également pertinent d’étudier les liens avec les maisons de disques : identifier lesquelles sont les plus présentes, si certaines concentrent une majorité d’artistes connus, et comment elles structurent le paysage musical actuel.
+  
   
 ## Conclusion
 En somme, ce projet m’a permis de découvrir de nouvelles méthodes d’analyse tout en mettant en évidence les limites de mes choix techniques. Il ouvre néanmoins de nombreuses pistes futures, tant sur l’étude de l’évolution des genres musicaux que sur l’exploration des réseaux industriels qui structurent le monde de la musique.
