@@ -278,6 +278,12 @@ En somme, ce projet m’a permis de découvrir de nouvelles méthodes d’analys
 - [Pandas.groupby.unstack, GeeksforGeeks](https://www.geeksforgeeks.org/python/pandas-groupby-unstack/)
 
 **Question 2**
+- [Pandas Documentation, Style User Guide](https://pandas.pydata.org/docs/user_guide/style.html)
+- [Scipy.stats.chi2 python, GeeksforGeeks](https://www.geeksforgeeks.org/python/scipy-stats-chi2-python/)
+- [Making Heatmaos from pandas dataframe, Stackoverflow](https://stackoverflow.com/questions/12286607/making-heatmap-from-pandas-dataframe)
+- [Seaborn Heatmap: A comprehensive guide, GeeksforGeeks](https://www.geeksforgeeks.org/python/seaborn-heatmap-a-comprehensive-guide/)
+
+**Question 3**
 - [What is Network Centrality ?, Symbio6](https://www.youtube.com/watch?v=teRuQnQ3v7o)
 - [Exploring and analyzing network data with python, ProgrammingHistorian](https://programminghistorian.org/en/lessons/exploring-and-analyzing-network-data-with-python)
 - [Networkx Documentation, Tutorial](https://networkx.org/documentation/networkx-1.9/_downloads/networkx_tutorial.pdf)
