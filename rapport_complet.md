@@ -263,3 +263,5 @@ Pour plus de lisibilité, j'ai encore restreint le nombre de styles de musique a
   
 ## Conclusion
 En somme, ce projet m’a permis de découvrir de nouvelles méthodes d’analyse tout en mettant en évidence les limites de mes choix techniques. Il ouvre néanmoins de nombreuses pistes futures, tant sur l’étude de l’évolution des genres musicaux que sur l’exploration des réseaux industriels qui structurent le monde de la musique.
+
+## Sources 
