@@ -73,7 +73,7 @@ Cependant, lors de la tentative d’import de ce fichier dans AllegroGraph, l’
 ### 1) Comment evolue le nombre de chanteurs.euses notables nés par decennies ? 
 **→ Application de la distribution de variable qualitative avec évolution temporelle**
 
-Pour l’analyse de la distribution d’une variable qualitative dans le temps, j’ai retenu le sexe des artistes et étudié son évolution décennie par décennie.
+Pour l’analyse de la distribution d’une variable qualitative dans le temps, j’ai retenu le sexe des artistes et étudié son évolution décennie par décennie. J'ai retenu uniquement les sexes "male" and "female" pour simplifier la tache. 
 
 ```python
 import pandas as pd
@@ -242,15 +242,16 @@ plt.show()
 
 
 ## Discussion
-Ce projet 
 
-**Points négatifs:**
-- Population beaucoup trop massive, reduit l'utilité de wikidata.
-- Utilisation de méthode personnelle,
-- 
-**Points positifs:**
-- Appris des nouvelles méthodes de travail et outils de travail qui me seront utiles dans mon parcours d'analyste de données. d
-- 
-**Suite possible de l'étude**:
+**Limites:**
+- La population étudiée était trop vaste, ce qui a réduit l’utilité de Wikidata et a limité l’usage d’AllegroGraph, qui n’a finalement pas pu être exploité comme prévu.
+- Les méthodes employées ont parfois été développées de manière personnelle, cela implique qu’elles n’ont pas été validées par un enseignant et qu’il est possible que d’autres approches plus efficaces existent.
+- L’analyse de réseaux aurait pu être approfondie davantage, avec un travail supplémentaire sur la détection de communautés, les poids des liens ou l’évolution temporelle.
+  
+**Perspectives:**
+- L’analyse de réseaux a été une partie particulièrement intéressante et nouvelle pour moi. J’aimerais par la suite explorer comment certains styles gagnent ou perdent en popularité selon les époques, et observer les différents réseaux que cela engendre au fil du temps.
+
+- Pour les artistes plus récents, il serait également pertinent d’étudier les liens avec les maisons de disques : identifier lesquelles sont les plus présentes, si certaines concentrent une majorité d’artistes connus, et comment elles structurent le paysage musical actuel.
   
 ## Conclusion
+En somme, ce projet m’a permis de découvrir de nouvelles méthodes d’analyse tout en mettant en évidence les limites de mes choix techniques. Il ouvre néanmoins de nombreuses pistes futures, tant sur l’étude de l’évolution des genres musicaux que sur l’exploration des réseaux industriels qui structurent le monde de la musique.
