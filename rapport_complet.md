@@ -11,7 +11,6 @@ Au départ, ce travail devait être réalisé sur la population de grimpeurs, en
 
 La multiplicité des documents et l’organisation des données m’avaient perdue, et je ne comprenais ni les requêtes ni les notebooks Jupyter. En appliquant une méthode plus originale, j’ai pu mieux apprendre et comprendre le processus, en espérant avoir atteint le résultat attendu.
 
-AJOUTER QUE PROPORTIONNALITé AURAIT éTé INTERESSANTE 
 -------------------------------
 
 ## Extraction des données
@@ -167,6 +166,8 @@ plt.show()
 On observe que la pop est le style le plus représenté, suivi du rock, tandis que le hip-hop est beaucoup plus marginal. Une forte concentration d’artistes est visible aux États-Unis, où la pop domine largement, suivie par la country. Au Japon, le genre le plus populaire est la J-Pop, ce qui reflète les préférences musicales locales.
 
 Il convient de noter que cette visualisation ne montre que les pays et genres les plus représentés ; certaines tendances moins fréquentes sont donc masquées. Néanmoins, elle permet de comprendre rapidement comment la distribution des styles musicaux varie selon les pays et met en évidence des préférences culturelles distinctes.
+
+AJOUTER QUE PROPORTIONNALITé AURAIT éTé INTERESSANTE 
 
 ----------------------------------------
 
