@@ -123,7 +123,7 @@ Cette fois, on peut distinguer deux périodes de montée significative : la pr
 
 --------------------------------
 
-### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style de musical des chanteurs et chanteuses ? 
+### 2) Existe-il une relation statistiquement importante entre le pays de citoyenneté et le style musical des chanteurs et chanteuses ? 
 **→ Application de l'analyse bivariée**
 
 Pour l’analyse bivariée de variables qualitatives, j’ai retenu le pays de citoyenneté et le style musical des artistes, afin d’examiner si le style pratiqué est lié à la localisation géographique (en supposant que les artistes chantent dans leur pays d’origine) et d’identifier les préférences musicales dans les pays les plus représentés, grace au test de chi^2. 
