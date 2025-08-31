@@ -31,27 +31,16 @@ labels = nx.draw_networkx_labels(G, pos, font_size=10)
 plt.title("Réseau des genres musicaux (basé sur artistes multi-genres)")
 plt.axis("off")
 plt.show()
-###################################################################
 
 # centralité en degré (genres les plus connectés)
-#deg_cent = nx.degree_centrality(G)
+deg_cent = nx.degree_centrality(G)
 
 # centralité d’intermédiarité (genres-passerelles)
-#bet_cent = nx.betweenness_centrality(G, weight="weight")
+bet_cent = nx.betweenness_centrality(G, weight="weight")
 
 # trier et afficher les top 10
-#print("Top 10 degré:")
-#print(sorted(deg_cent.items(), key=lambda x: x[1], reverse=True)[:10])
+print("Top 10 degré:")
+print(sorted(deg_cent.items(), key=lambda x: x[1], reverse=True)[:10])
 
-#print("Top 10 intermédiarité:")
-#print(sorted(bet_cent.items(), key=lambda x: x[1], reverse=True)[:10])
-###############################################################################
-import community.community_louvain as community_louvain
-
-# partition Louvain
-partition = community_louvain.best_partition(G, weight="weight")
-
-# Exemple: print 10 genres avec leur communauté
-for genre, com in list(partition.items())[:10]:
-    print(genre, "→ communauté", com)
-ß
+print("Top 10 intermédiarité:")
+print(sorted(bet_cent.items(), key=lambda x: x[1], reverse=True)[:10])
