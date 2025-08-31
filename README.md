@@ -1,4 +1,4 @@
-# Chanteurs
+# Chanteurs.euses.
 Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'évaluation.
 
 ### Documentation
