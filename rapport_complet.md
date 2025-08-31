@@ -239,7 +239,9 @@ plt.axis("off")
 plt.show()
 ```
 <img width="1758" height="1256" alt="image" src="https://github.com/user-attachments/assets/0274cfcb-0c8b-45be-bf53-c064957a250c" />
+<img width="1758" height="1256" alt="image" src="https://github.com/user-attachments/assets/4457a650-a91d-49a2-9fcb-832ba4aec342" />
 
+Au départ, j’avais inclus l’ensemble des styles de musique disponibles dans mon schéma. Cependant, le résultat était illisible et ne permettait aucune interprétation. J’ai donc retravaillé plusieurs fois la visualisation jusqu’à parvenir à une version plus lisible, en me concentrant sur les 20 styles de musique les plus représentés.
 
 ## Discussion
 
