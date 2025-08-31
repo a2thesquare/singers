@@ -240,9 +240,14 @@ plt.title("Réseau des genres musicaux (basé sur artistes multi-genres)")
 plt.axis("off")
 plt.show()
 ```
-<img width="1758" height="1256" alt="image" src="https://github.com/user-attachments/assets/0274cfcb-0c8b-45be-bf53-c064957a250c" />
 
 Au départ, j’avais inclus l’ensemble des styles de musique disponibles dans mon schéma. Cependant, le résultat était illisible et ne permettait aucune interprétation. J’ai donc retravaillé plusieurs fois la visualisation jusqu’à parvenir à une version plus lisible, en me concentrant sur les 20 styles de musique les plus représentés.
+
+<img width="1600" height="auto" alt="image" src="https://github.com/user-attachments/assets/0274cfcb-0c8b-45be-bf53-c064957a250c" />
+
+Pour enocre plus de lisibilité, j'ai encore restreint le nombre de styles de musique au top 10.  
+
+<img width="1758" height="1256" alt="image" src="https://github.com/user-attachments/assets/3f6422fe-13fb-4f70-88e2-eed233c5be39" />
 
 ## Discussion
 
