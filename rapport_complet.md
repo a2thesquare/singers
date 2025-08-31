@@ -84,12 +84,11 @@ df = pd.read_csv("combined_singers.csv") # lecture du csv
 df['birth_date'] = pd.to_datetime(df['birthDate'], errors='coerce') # conversion en datatime pour pouvoir le traiter comme une date
 
 df['birth_year'] = df['birth_date'].dt.year # extraction de l'année
-
 df['decade'] = (df['birth_year'] // 10) * 10 # calcul de la decennie
 
 df = df[df['genderLabel'].isin(['male', 'female'])] # pour simplification de l'analyse, on prends en compte uniquement les genres male et female
-
-decade_gender_counts = df.groupby(['decade', 'genderLabel'])['singerLabel'].count().unstack(fill_value=0) # decompte des chanteurs par decennie et genres
+# decompte des chanteurs par decennie et genres
+decade_gender_counts = df.groupby(['decade', 'genderLabel'])['singerLabel'].count().unstack(fill_value=0) #unstack: échange les colonnes et les lignes
 
 decade_gender_counts.plot(kind='bar', figsize=(12,6), color=['lightpink', 'skyblue'])
 
@@ -134,18 +133,18 @@ from scipy.stats import chi2_contingency
 
 df = pd.read_csv("combined_singers.csv")
 
-# Filtrer si nécessaire, par exemple uniquement pour les pays les plus représentés
+# filtre les pays les plus representés
 top_countries = df['citizenshipLabel'].value_counts().nlargest(10).index
 df_filtered = df[df['citizenshipLabel'].isin(top_countries)]
 
-# Table de contingence
+# table de contingence
 contingency = pd.crosstab(df_filtered['citizenshipLabel'], df_filtered['genreLabel'])
 print(contingency)
 
 chi2, p, dof, expected = chi2_contingency(contingency)
 print(f"Chi2 = {chi2:.2f}, p-value = {p:.4f}")
 ```
-**Resultat: Chi2 = 93652.10, p-value = 0.0000**
+**Résultats: Chi2 = 93652.10, p-value = 0.0000**
 
 La valeur très élevée du Chi2 indique qu’il existe un écart important entre les effectifs observés et ceux attendus sous l’hypothèse d’indépendance entre le pays de citoyenneté et le style musical. La p-value proche de 0 montre que cet écart est hautement significatif, ce qui permet de rejeter l’hypothèse nulle. Autrement dit, il existe une association statistiquement significative entre le pays et le style musical : certains genres sont beaucoup plus fréquents dans certains pays. Pour illustrer cette association, nous avons construit une heatmap représentant les 10 pays et les 10 genres musicaux les plus fréquents.
 
@@ -173,15 +172,15 @@ AJOUTER QUE PROPORTIONNALITé AURAIT éTé INTERESSANTE
 
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
 **→ Application de l'analyse de réseaux**
-Quels genres musicaux sont le plus performés ensembles, pas les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
 
+Quels genres musicaux sont le plus performés ensembles, pas les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
 
 ```python
 
-# centralité en degré (genres les plus connectés)
+# centralité en degré (genres les plus connectés brut)
 deg_cent = nx.degree_centrality(G)
 
-# centralité d’intermédiarité (genres-passerelles)
+# centralité d’intermédiarité
 bet_cent = nx.betweenness_centrality(G, weight="weight")
 
 # trier et afficher les top 10
@@ -223,7 +222,7 @@ artist_genres = df_top.groupby("singerLabel")["genreLabel"].apply(list)
 G = nx.Graph()
 
 for genres in artist_genres:
-    # Toutes les paires de genres pour cet artiste
+    # toutes les paires de genres pour cet artiste
     for g1, g2 in combinations(set(genres), 2):  
         if G.has_edge(g1, g2):
             G[g1][g2]["weight"] += 1
@@ -264,4 +263,21 @@ Pour plus de lisibilité, j'ai encore restreint le nombre de styles de musique a
 ## Conclusion
 En somme, ce projet m’a permis de découvrir de nouvelles méthodes d’analyse tout en mettant en évidence les limites de mes choix techniques. Il ouvre néanmoins de nombreuses pistes futures, tant sur l’étude de l’évolution des genres musicaux que sur l’exploration des réseaux industriels qui structurent le monde de la musique.
 
+----------------------
+
 ## Sources 
+
+**Union fichiers CSV**
+- [How to merge two csvs using Pandas in Python, SaturnCloud](https://saturncloud.io/blog/how-to-merge-two-csvs-using-pandas-in-python/)
+- [Effortlessly Merge CSV Files with Python: Fast Tutorial, Bigelow Inventions](https://www.youtube.com/watch?v=VCLPSqmsHZA)
+
+**Question 1**
+- [Pandas Documentation, Dataframe.plot.bar](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.bar.html#pandas.DataFrame.plot.bar)
+- [Pandas Documentation, to_datatime](https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html#pandas.to_datetime)
+- [Pandas Documentation, visualization](https://pandas.pydata.org/docs/user_guide/visualization.html)
+- [Pandas.groupby.unstack, GeeksforGeeks](https://www.geeksforgeeks.org/python/pandas-groupby-unstack/)
+
+**Question 2**
+- [What is Network Centrality ?, Symbio6](https://www.youtube.com/watch?v=teRuQnQ3v7o)
+- [Exploring and analyzing network data with python, ProgrammingHistorian](https://programminghistorian.org/en/lessons/exploring-and-analyzing-network-data-with-python)
+- [Networkx Documentation, Tutorial](https://networkx.org/documentation/networkx-1.9/_downloads/networkx_tutorial.pdf)
