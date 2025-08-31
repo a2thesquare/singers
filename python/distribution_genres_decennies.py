@@ -1,18 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("combined_singers.csv") # lecture du csv
+df = pd.read_csv("combined_singers.csv") 
 
-df['birth_date'] = pd.to_datetime(df['birthDate'], errors='coerce') # conversion en datatime pour pouvoir le traiter comme une date
+df['birth_date'] = pd.to_datetime(df['birthDate'], errors='coerce') 
+df['birth_year'] = df['birth_date'].dt.year 
 
-df['birth_year'] = df['birth_date'].dt.year # extraction de l'année
-
-df['decade'] = (df['birth_year'] // 10) * 10 # calcul de la decennie
+df['decade'] = (df['birth_year'] // 10) * 10 
 
 df = df[df['genderLabel'].isin(['male', 'female'])]
 
 decade_gender_counts = df.groupby(['decade', 'genderLabel'])['singerLabel'].count().unstack(fill_value=0)
-
 decade_gender_counts.plot(kind='bar', figsize=(12,6), color=['lightpink', 'skyblue'])
 
 plt.xlabel('Decade of Birth')
