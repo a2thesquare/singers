@@ -203,7 +203,7 @@ Ici, un score de 1 veut dire que le genre est lié à 100 % des autres genres co
 Hard rock et chanson remplissent aussi ce rôle de médiateurs entre différents ensembles musicaux. Des genres comme reggae ou blues servent de passerelles entre des familles musicales plus spécialisées (urbain, traditionnel, etc.) et le noyau central pop/rock.
 Toutes ce que nous disent ces chiffres peut etre confirmé graçe au shema suivant: 
 ```python
-mport pandas as pd
+import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 from itertools import combinations
