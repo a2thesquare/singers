@@ -7,7 +7,7 @@ Ce travail vise à expérimenter les différentes étapes de production et d’a
 2) Existe-t-il une relation statistiquement significative entre le pays de citoyenneté et le style musical ?
 3) Quels genres musicaux apparaissent le plus souvent associés chez les chanteurs et chanteuses ?
    
-Au départ, ce travail devait être réalisé sur la population de grimpeurs, en suivant la méthode proposée par l’enseignant (repository au [lien suivant](https://github.com/a2thesquare/Grimpeurs). Après de nombreux essais et plusieurs heures de travail, j’ai décidé de recommencer à zéro en choisissant une autre population et une méthode que je comprenais mieux et qui m'était propre, tout en utilisant autant que possible les outils demandés.
+Au départ, ce travail devait être réalisé sur la population de grimpeurs, en suivant la méthode proposée par l’enseignant (repository au [lien suivant)](https://github.com/a2thesquare/Grimpeurs). Après de nombreux essais et plusieurs heures de travail, j’ai décidé de recommencer à zéro en choisissant une autre population et une méthode que je comprenais mieux et qui m'était propre, tout en utilisant autant que possible les outils demandés.
 
 La multiplicité des documents et l’organisation des données m’avaient perdue, et je ne comprenais ni les requêtes ni les notebooks Jupyter. En appliquant une méthode plus originale, j’ai pu mieux apprendre et comprendre le processus, en espérant avoir atteint le résultat attendu.
 
