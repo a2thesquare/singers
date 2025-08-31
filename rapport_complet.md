@@ -11,6 +11,7 @@ Au départ, ce travail devait être réalisé sur la population de grimpeurs, en
 
 La multiplicité des documents et l’organisation des données m’avaient perdue, et je ne comprenais ni les requêtes ni les notebooks Jupyter. En appliquant une méthode plus originale, j’ai pu mieux apprendre et comprendre le processus, en espérant avoir atteint le résultat attendu.
 
+AJOUTER QUE PROPORTIONNALITé AURAIT éTé INTERESSANTE 
 -------------------------------
 
 ## Extraction des données
