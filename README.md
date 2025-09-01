@@ -8,7 +8,7 @@ Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'éva
 
 ### Données
 - [Base de données csv](combined_singers.csv.zip)
-- [Base de données RDF](wikidata.rdf.zip)
+- [Base de données RDF](rdf/wikidata.rdf.zip)
 
 ### Code
 - [Documentation SPARQL](sparql)
