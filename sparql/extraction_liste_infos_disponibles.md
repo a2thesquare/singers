@@ -1,4 +1,4 @@
-Ce document exokique le cheminement pour obtenir une liste de propriétés et valeurs lisibles pour des chanteurs. 
+Ce document explique le cheminement pour obtenir une liste de propriétés et valeurs lisibles pour des chanteurs. 
 
 **Objectif:** récuperer toutes les propritétés et valeurs lisibles pour les chanteurs nés après 1801 depuis wikidata, avec les colonnes suivantes: 
 - 'p': propriété
