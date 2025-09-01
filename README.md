@@ -3,7 +3,7 @@ Voici l'ensemble des documents spécifiques en rapport avec les objectifs d'éva
 
 ### Documentation
 - [Questions de recherche et objectifs du projet](rapport_complet.md)
-- [Liste d'informations disponibles](liste_informations_michael_jackson.csv) et [explication](extraction_liste_infos_disponibles.md)
+- [Liste d'informations disponibles](liste_informations_michael_jackson.csv) et [explication](sparql/extraction_liste_infos_disponibles.md)
 - [Rapport complet](rapport_complet.md)
 
 ### Données
