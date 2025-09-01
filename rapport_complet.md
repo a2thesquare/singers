@@ -171,7 +171,7 @@ Il convient de noter que cette visualisation ne montre que les pays et genres le
 ### 3) Quels genres musicaux sont le plus souvent associés entre eux chez les chanteurs.euses ?
 **→ Application de l'analyse de réseaux**
 
-Quels genres musicaux sont le plus performés ensembles, pas les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
+Quels genres musicaux sont le plus performés ensembles, par les memes artistes. Les noeuds sont les styles de musiques, les arretes sont reliées si un artiste appartient aux deux. Cela pourrait nous permettre de voir quels genres musicaux apparaissent souvent ensembles, quels genres sont des ponts, et eventuellement détecter des communcautés de genres. 
 
 ```python
 
